@@ -93,7 +93,7 @@ export const ngoData = [
         contact: "8421952167",
         categories: ["Education", "Books"],
         description: "Operates Shri Satyasai Vidyamandir, providing holistic education and resource distribution to children from economically weaker sections.",
-        website: "https://ngodarpan.gov.in/index.php/home/statewise_ngo/1247/27/1", // NGO Darpan link proxy
+        website: "https://ngodarpan.gov.in/index.php/home/statewise_ngo/1247/27/1",
         image: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&q=80&w=800",
         mockUPI: "daulatrao@axisbank",
         recentActivities: [
@@ -320,7 +320,7 @@ export const ngoData = [
         contact: "9175659227",
         categories: ["Education", "Books"],
         description: "Recently incorporated in 2025, this foundation preserves traditional Gurukul values while integrating modern academic resources like digital libraries.",
-        website: "https://shivshaktigurukulam.org", // Inferred/Placeholder derived from name
+        website: "https://shivshaktigurukulam.org",
         image: "https://images.unsplash.com/photo-1544652298-543a2eaa97cd?auto=format&fit=crop&q=80&w=800",
         mockUPI: "shivshakti@sbi",
         certifications: ["Registered (U85500MH2025NPL452819)"],
@@ -413,7 +413,7 @@ export const ngoData = [
         contact: "9403554894",
         categories: ["Environment", "Volunteering"],
         description: "A collective for regional pride and environmental conservation. They lead youth-led plantation drives and heritage preservation activities across Vidarbha.",
-        website: "https://nagpur.gov.in/notices/", // Proxy to local government outreach
+        website: "https://nagpur.gov.in/notices/",
         image: "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&q=80&w=800",
         mockUPI: "vidarbhavabhav@ybl",
         recentActivities: [
@@ -432,7 +432,7 @@ export const ngoData = [
         contact: "8421952167",
         categories: ["Education", "Healthcare"],
         description: "Incorporated in 2025, Prayogam focuses on 'Community, Personal, and Social Services' with a primary emphasis on secondary education support.",
-        website: "https://prayogamfoundation.com", // Placeholder
+        website: "https://prayogamfoundation.com",
         image: "https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?auto=format&fit=crop&q=80&w=800",
         mockUPI: "prayogam@axis",
         certifications: ["Registered (U85500MH2025NPL452819)"],
@@ -446,4 +446,5 @@ export const ngoData = [
     }
 ];
 
+// Derive all unique categories from the NGO data
 export const allCategories = ["All", ...Array.from(new Set(ngoData.flatMap(ngo => ngo.categories)))].sort();

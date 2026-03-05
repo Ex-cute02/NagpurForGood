@@ -1,27 +1,39 @@
-import React from 'react';
+import { motion } from 'framer-motion';
+import { staggerContainer, staggerItem } from '../utils/animations';
 
 const FilterBar = ({ categories, selectedCategory, onSelectCategory }) => {
     return (
-        <div className="w-full max-w-5xl mx-auto px-6 mb-12 z-20 relative" id="discover">
+        <div className="w-full max-w-6xl mx-auto px-6 mb-12 z-20 relative" id="discover">
             <div className="flex flex-col gap-4">
-                <h2 className="text-2xl font-bold text-white mb-2">Discover by Cause</h2>
+                <h2 className="text-lg font-black text-white/80 uppercase tracking-widest">
+                    Discover by Cause
+                </h2>
 
-                <div className="flex flex-wrap gap-3">
+                <motion.div 
+                    variants={staggerContainer}
+                    initial="initial"
+                    animate="animate"
+                    className="flex flex-wrap gap-3"
+                >
                     {categories.map((category) => (
-                        <button
+                        <motion.button
                             key={category}
+                            variants={staggerItem}
                             onClick={() => onSelectCategory(category)}
+                            whileHover={{ scale: 1.03 }}
+                            whileTap={{ scale: 0.97 }}
                             className={`
-                px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300 backdrop-blur-md
-                ${selectedCategory === category
-                                    ? 'bg-gradient-to-r from-violet-600 to-pink-600 text-white shadow-[0_4px_20px_rgba(139,92,246,0.5)] border border-transparent scale-105'
-                                    : 'bg-white/5 border border-white/10 text-white/70 hover:bg-white/10 hover:text-white hover:border-white/20'}
-              `}
+                                px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300 backdrop-blur-md
+                                ${selectedCategory === category
+                                    ? 'bg-gradient-to-r from-violet-600 to-rose-600 text-white shadow-[0_4px_24px_rgba(139,92,246,0.4)] border border-transparent scale-105'
+                                    : 'bg-white/5 border border-white/8 text-white/60 hover:bg-white/10 hover:text-white hover:border-white/15'
+                                }
+                            `}
                         >
                             {category}
-                        </button>
+                        </motion.button>
                     ))}
-                </div>
+                </motion.div>
             </div>
         </div>
     );

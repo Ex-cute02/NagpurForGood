@@ -1,72 +1,16 @@
-# 🛸 Nagpur For Good
+# React + Vite
 
-**Connect. Support. Transform Nagpur.**
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Nagpur For Good is a high-fidelity, transparent information portal designed to bridge the gap between intent and authentic local impact. We provide a curated, source-verified directory of NGOs in Nagpur, enabling users to discover, support, and track real-world change.
+Currently, two official plugins are available:
 
----
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## 🎨 Premium UI/UX Experience
+## React Compiler
 
-Built with a modern **Glassmorphism** aesthetic, the platform offers a premium, immersive experience that emphasizes data clarity and visual excellence.
+The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
-### 🏠 Intelligent Discovery
-Filter NGOs by cause—Education, Healthcare, Environment, and more—with an interactive, responsive grid.
+## Expanding the ESLint configuration
 
-![Home Page Experience](./docs/assets/home.png)
-
-### 🏙️ Deep-Dive Organization Portals
-Every NGO has a dedicated space featuring their mission, detailed programs, and verified leadership.
-
-![NGO Portal Hero](./docs/assets/detail_hero.png)
-
----
-
-## 🛡️ Absolute Data Integrity (Primary Sourcing)
-
-We enforce a strict **Primary Source Only** policy. All impact benchmarks and milestones are linked directly to the organizations' official digital assets.
-
-### 🔗 Transparency Hub
-- **Click-to-Source**: Every benchmark is a live redirect to official records.
-- **Verified Metrics**: Data on 127,600+ Langar meals and 198,000+ lives impacted cross-referenced with official portals.
-- **Zero Third-Party Aggregators**: We bypass middleman data for 100% authenticity.
-
-![Transparency Hub & Milestones](./docs/assets/detail_impact.png)
-
-### 👥 Verified Leadership
-Transparent board of directors and team sections, ensuring horizontal accountability and trust.
-
-![Team & Leadership](./docs/assets/detail_team.png)
-
----
-
-## 🚀 Tech Stack
-
-- **Frontend**: React 18 + Vite
-- **Routing**: React Router 7
-- **Styling**: TailwindCSS 4 (Premium Glassmorphism System)
-- **Icons**: Lucide React
-- **Animations**: Tailwind Animate + Framer-inspired transitions
-
----
-
-## 🛠️ Development
-
-### Setup
-```bash
-npm install
-```
-
-### Run Locally
-```bash
-npm run dev
-```
-
-### Build
-```bash
-npm run build
-```
-
----
-> [!IMPORTANT]
-> This platform is a verified information hub. All data is cross-referenced against NGO Darpan and official organization portals.
+If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
