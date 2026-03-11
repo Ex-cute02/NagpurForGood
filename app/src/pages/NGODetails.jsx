@@ -5,21 +5,22 @@ import {
     Mail, Award, Calendar, BarChart3, Heart, ArrowLeft, Users,
     CheckCircle2, ExternalLink, ShieldCheck
 } from 'lucide-react';
-import { ngoData } from '../data/ngoData';
+import { useNGOs } from '../context/NGOContext';
 import { getCertConfig } from '../constants/certifications';
 import { calculateTrustScore } from '../utils/trustScore';
 
 const NGODetails = () => {
     const { id } = useParams();
+    const { ngoList } = useNGOs();
     const [ngo, setNgo] = useState(null);
     const [showDonation, setShowDonation] = useState(false);
     const trustScore = ngo ? calculateTrustScore(ngo) : null;
 
     useEffect(() => {
-        const foundNgo = ngoData.find(n => n.id.toString() === id.toString());
+        const foundNgo = ngoList.find(n => n.id.toString() === id.toString());
         setNgo(foundNgo);
         window.scrollTo(0, 0);
-    }, [id]);
+    }, [id, ngoList]);
 
     if (!ngo) return (
         <div className="min-h-screen flex items-center justify-center text-theme-primary">
