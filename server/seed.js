@@ -1,16 +1,15 @@
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 const NGO = require('./models/NGO');
-const pkg = require('../app/src/data/ngoData.js');
+const Admin = require('./models/Admin');
+const bcrypt = require('bcryptjs');
+const fs = require('fs');
 
 dotenv.config();
 
 const connectDB = async () => {
     try {
-        await mongoose.connect(process.env.MONGO_URI, {
-            useNewUrlParser: true,
-            useUnifiedTopology: true
-        });
+        await mongoose.connect(process.env.MONGO_URI);
         console.log('MongoDB Connected for Seeding...');
     } catch (err) {
         console.error(err.message);
@@ -20,14 +19,32 @@ const connectDB = async () => {
 
 const importData = async () => {
     try {
+        // Clear NGOs
         await NGO.deleteMany();
         console.log('Existing NGOs removed.');
 
-        // This requires slightly adjusting the export of ngoData so Node can read it, 
-        // or just copying the array for the seed script directly:
+        // Clear Admins
+        await Admin.deleteMany();
+        console.log('Existing Admins removed.');
+
+        const data = JSON.parse(fs.readFileSync('./ngos.json', 'utf-8'));
         
-        await NGO.insertMany(pkg.ngoData);
-        console.log('Data Imported!');
+        // Insert NGOs
+        await NGO.insertMany(data);
+        console.log('NGO Data Imported!');
+
+        // Create initial admin
+        const salt = await bcrypt.genSalt(10);
+        const hashedPassword = await bcrypt.hash('admin123', salt);
+
+        await Admin.create({
+            name: 'Super Admin',
+            email: 'admin@nagpur.org',
+            password: hashedPassword,
+            role: 'Admin'
+        });
+        console.log('Initial Admin Created! (admin@nagpur.org / admin123)');
+
         process.exit();
     } catch (err) {
         console.error(err);
